@@ -1,11 +1,27 @@
-# Test app for Pluralsight course
+### Docker Node.js Example
 
-This is a quick and dirty test node.js app cobbled together for the purposes of demonstrating a basic CI/CD workflow with Docker Hub for a Pluralsight video training course..
+Run:
+```sh
+docker-compose up
+```
 
-## Instructions for use
+See logs:
+```sh
+docker logs <name>
+```
 
-All of the files included in the .zip file (available to Plus subscribers) should be unzipped into a new directory.
+Enter container terminal:
+```sh
+docker exec -it <name> /bin/bash
+```
 
-Initializing a Git repo and making a remote of it on GitHub are explained in Module 2 of the course.
+Open app:
+```sh
+open "http://$(docker-machine ip):8000/"
+# curl -i "$(docker-machine ip):8000/"
+```
 
-The viewer should have Git installed and have a GitHub account.
+Stop:
+```sh
+docker-compose down
+```

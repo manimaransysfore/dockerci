@@ -1,19 +1,18 @@
-FROM centos:centos6
+# install latest node
+# https://hub.docker.com/_/node/
+FROM node:latest
 
-MAINTAINER nigelpoulton@hotmail.com
+# Set app directory
+WORKDIR /app
+COPY package.json /app
+# install app dependencies
+# this is done before the following COPY command to take advantage of layer caching
+RUN npm install
 
-# Enable EPEL for Node.js
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+# copy app source to destination container
+COPY . .
 
-# Install Node...
-RUN yum install -y npm
+# expose container port
+EXPOSE 3000
 
-# Copy app to /src
-COPY . /src
-
-# Install app and dependencies into /src
-RUN cd /src; npm install
-
-EXPOSE 8080
-
-CMD cd /src && node ./app.js
+CMD npm start
