@@ -1,11 +1,11 @@
 ### Docker Node.js Example
 
-Run:
+Run: r
 ```sh
 docker-compose up
 ```
 
-See logs:
+See logs: a
 ```sh
 docker logs <name>
 ```
