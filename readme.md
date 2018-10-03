@@ -5,7 +5,7 @@ Run: r
 docker-compose up
 ```
 
-See logs: a
+See logs: b
 ```sh
 docker logs <name>
 ```
